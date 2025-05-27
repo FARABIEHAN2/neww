@@ -37,6 +37,11 @@ app = FastAPI(title="NOTEZ FUN API", description="Complete page building platfor
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
+# Health check endpoint
+@api_router.get("/")
+async def health_check():
+    return {"status": "healthy", "message": "NOTEZ FUN API is running"}
+
 # Pydantic Models
 class UserCreate(BaseModel):
     username: str
