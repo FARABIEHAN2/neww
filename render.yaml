@@ -12,7 +12,7 @@ services:
       - key: PORT
         value: 8001
       - key: MONGO_URL
-        value: "mongodb://notez_admin:your_password@notez-fun-mongodb:27017/notez_fun_db"  # Manually set MongoDB URL here
+        value: "mongodb://notez_admin:your_password@notez-fun-mongodb:27017/notez_fun_db"  # Set MongoDB URL manually
       - key: DB_NAME
         value: notez_fun_db
       - key: JWT_SECRET_KEY
@@ -32,10 +32,17 @@ services:
     branch: main
     envVars:
       - key: REACT_APP_BACKEND_URL
-        fromService:
-          type: web
-          name: notez-fun-backend
-          property: host
+        value: "https://notez-fun-backend.example.com"  # Set Backend URL here manually, replace with actual backend URL
+      - key: REACT_APP_ENABLE_ANALYTICS
+        value: false
+      - key: REACT_APP_ENABLE_ERROR_TRACKING
+        value: false
+      - key: REACT_APP_ENVIRONMENT
+        value: development
+      - key: REACT_APP_NAME
+        value: "NOTEZ FUN"
+      - key: REACT_APP_VERSION
+        value: "1.0.0"
 
 # Database Configuration
 databases:
