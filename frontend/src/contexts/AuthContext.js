@@ -108,6 +108,8 @@ export const AuthProvider = ({ children }) => {
       const { access_token } = response.data;
       setToken(access_token);
       localStorage.setItem('token', access_token);
+      // Set a special owner user object to indicate owner authentication
+      setUser({ id: 'owner', username: 'Owner', role: 'owner' });
       
       return { success: true };
     } catch (error) {
