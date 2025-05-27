@@ -32,7 +32,7 @@ services:
     branch: main
     envVars:
       - key: REACT_APP_BACKEND_URL
-        value: "https://notez-fun-backend.example.com"  # Set Backend URL here manually, replace with actual backend URL
+        value: "https://notez-fun-backend.example.com"  # Set Backend URL manually, replace with actual backend URL
       - key: REACT_APP_ENABLE_ANALYTICS
         value: false
       - key: REACT_APP_ENABLE_ERROR_TRACKING
@@ -53,12 +53,4 @@ databases:
     region: oregon
     ipAllowList: []
 
-# Additional Configuration
-settings:
-  buildFilter:
-    paths:
-      - backend/**
-      - frontend/**
-    ignoredPaths:
-      - "**/*.md"
-      - docs/**
+# Additional Configuration (removed settings block)
