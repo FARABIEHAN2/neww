@@ -1,4 +1,3 @@
-# Render.com One-Click Deployment Configuration for NOTEZ FUN Platform
 services:
   # Backend Service (FastAPI)
   - type: web
@@ -32,20 +31,6 @@ services:
     dockerfilePath: ./frontend/Dockerfile
     plan: starter
     region: oregon
-    branch: main
-    envVars:
-      - key: REACT_APP_BACKEND_URL
-        fromService:
-          type: web
-          name: notez-fun-backend
-          property: host
-
-  # Static Site Alternative (if preferred over Docker)
-  - type: static
-    name: notez-fun-frontend-static
-    buildCommand: cd frontend && yarn install && yarn build
-    staticPublishPath: ./frontend/build
-    pullRequestPreviewsEnabled: true
     branch: main
     envVars:
       - key: REACT_APP_BACKEND_URL
