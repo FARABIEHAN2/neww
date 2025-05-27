@@ -12,7 +12,7 @@ services:
       - key: PORT
         value: 8001
       - key: MONGO_URL
-        value: "mongodb://notez_admin:your_password@notez-fun-mongodb:27017/notez_fun_db"  # Set MongoDB URL here manually
+        value: "mongodb://notez_admin:your_password@notez-fun-mongodb:27017/notez_fun_db"  # Manually set MongoDB URL here
       - key: DB_NAME
         value: notez_fun_db
       - key: JWT_SECRET_KEY
