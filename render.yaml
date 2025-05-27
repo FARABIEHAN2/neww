@@ -1,0 +1,74 @@
+# Render.com One-Click Deployment Configuration for NOTEZ FUN Platform
+services:
+  # Backend Service (FastAPI)
+  - type: web
+    name: notez-fun-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    plan: starter
+    region: oregon
+    branch: main
+    healthCheckPath: /api/
+    envVars:
+      - key: PORT
+        value: 8001
+      - key: MONGO_URL
+        fromDatabase:
+          name: notez-fun-mongodb
+          property: connectionString
+      - key: DB_NAME
+        value: notez_fun_db
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: ENVIRONMENT
+        value: production
+    
+  # Frontend Service (React)
+  - type: web
+    name: notez-fun-frontend
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    plan: starter
+    region: oregon
+    branch: main
+    envVars:
+      - key: REACT_APP_BACKEND_URL
+        fromService:
+          type: web
+          name: notez-fun-backend
+          property: host
+
+  # Static Site Alternative (if preferred over Docker)
+  - type: static
+    name: notez-fun-frontend-static
+    buildCommand: cd frontend && yarn install && yarn build
+    staticPublishPath: ./frontend/build
+    pullRequestPreviewsEnabled: true
+    branch: main
+    envVars:
+      - key: REACT_APP_BACKEND_URL
+        fromService:
+          type: web
+          name: notez-fun-backend
+          property: host
+
+# Database Configuration
+databases:
+  - name: notez-fun-mongodb
+    databaseName: notez_fun_db
+    user: notez_admin
+    plan: starter
+    region: oregon
+    ipAllowList: []
+
+# Additional Configuration
+settings:
+  buildFilter:
+    paths:
+      - backend/**
+      - frontend/**
+    ignoredPaths:
+      - "**/*.md"
+      - docs/**
