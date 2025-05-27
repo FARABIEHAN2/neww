@@ -1,70 +1,224 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-.idea/
-dist
-# dependencies
+# NOTEZ FUN Platform - Git Ignore File
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependencies
 node_modules/
-/.pnp
-.pnp.js
-.yarn/install-state.gz
-.vscode
-# testing
-/coverage
-dump.rdb
-chainlit.md
-.chainlit
-# next.js
-/.next/
-/out/
-.ipynb_checkpoints/
-# production
-/build
+*/node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
 
-# misc
-.DS_Store
-*.pem
+# Production builds
+/frontend/build
+/frontend/dist
+/backend/build
+/backend/dist
 
-# debug
+# Logs
+*.log
+logs/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
-# local env files
-# .env*.local
-*token.json*
-# vercel
-.vercel
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# typescript
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript cache
 *.tsbuildinfo
-next-env.d.ts
-*pyc*
-#*.env
-.ac
-agenthub/agents/youtube/db
-*credentials.json*
 
-venv/
-.venv/
-__pycache__/
+# Optional npm cache directory
+.npm
 
-# ===================
-# ADDITIONAL RULES TO PREVENT FILE SIZE VIOLATIONS
-# ===================
-# Archive files (anywhere in the project)
-**/*.zip
-**/*.tar.gz
-**/*.tar
-**/*.tgz
+# Optional eslint cache
+.eslintcache
 
-# Build caches and artifacts
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
 .cache/
-*.pack
+public
 
-# System packages
-*.deb
+# Storybook build outputs
+.out
+.storybook-out
 
-# Python native libraries
-*.dylib
+# Temporary folders
+tmp/
+temp/
 
-# Android SDK
-android-sdk/
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Python
+*.pyc
+__pycache__/
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker
+.dockerignore
+
+# Render deployment files (keep render.yaml)
+# render.yaml is intentionally tracked
+
+# Local development overrides
+docker-compose.override.yml
+docker-compose.local.yml
+
+# IDE and editor files
+*.sublime-workspace
+*.sublime-project
+
+# Testing artifacts
+.coverage
+htmlcov/
+.pytest_cache/
+test-results/
+
+# Security and secrets
+*.pem
+*.key
+*.cert
+secrets/
+credentials/
